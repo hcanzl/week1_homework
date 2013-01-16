@@ -18,18 +18,35 @@ describe 'Everything is an Object!' do
     "Two".should be_a Object
   end
 
-  it 'Numbers are objects'
+  it 'Numbers are objects' do
+    1.should be_a Object
+  end
 
-  it 'Hashes are objects'
+  it 'Hashes are objects' do
+    rate = Hash.new
+    rate['Jones'] = 25
+    rate['Paulson'] = 35
+    rate.should be_a Object
+  end
 
-  it 'Arrays are objects'
+  it 'Arrays are objects' do
+    [1, 2, 3].should be_a Object
+  end
 
-  it 'Expressions evaluate to objects'
+  it 'Expressions evaluate to objects' do
+    (-5).abs.should be_a Object
+  end
 
-  it 'Symbols are objects'
+  it 'Symbols are objects' do
+    :student.should be_a Object
+  end
 
-  it 'Classes are objects'
+  it 'Classes are objects' do
+    Array.should be_a Object
+  end
 
-  it 'ADD ANY EXAMPLE THAT EVALUATES AN OBJECT'
+  it 'ADD ANY EXAMPLE THAT EVALUATES TO AN OBJECT' do
+    (8 % 2).should be_a Object
+  end
 
 end
