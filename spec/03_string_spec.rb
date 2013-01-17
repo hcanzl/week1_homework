@@ -51,7 +51,7 @@ describe "Strings" do
     end
     
     it "allow double-quote (\") characters" do
-      'Alfred " Newman'.should eq 'Alfred " Newman'
+      'Alfred " Newman'.should eq "Alfred \" Newman"
     end
 
     it "allow the escape of single quote (') characters" do
@@ -60,7 +60,7 @@ describe "Strings" do
     
     it "does not interpolate Ruby code" do
       name = 'Joe'
-      'My name is #{name}'.should eq 'My name is #{name}'
+      'My name is #{name}'.should_not eq "My name is #{name}"
     end
     
     it "does not escape newline characters" do
@@ -76,7 +76,8 @@ describe "Strings" do
     end
 
     it "can omit the Q and just use %{}" do
-      "<span style='color:blue'>\"1 + 1 = #{1 + 1}\"</span>".should eq '<span style=\'color:blue\'>"1 + 1 = 2"</span>'
+      %{<span style='color:blue'>\"1 + 1 = #{1 + 1}\"</span>}.should eq '<span style=\'color:blue\'>"1 + 1 = 2"</span>'
+      
     end
 
     it "created with the pattern %q supports arbitrary delimiters and behave like a single quoted string" do
